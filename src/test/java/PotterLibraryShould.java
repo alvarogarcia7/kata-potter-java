@@ -24,7 +24,9 @@ public class PotterLibraryShould {
 	}
 
 	private double percent_discount (final int percent) {
-		return (8+8)*0.95;
+		final double totalOfOne = percent / 100d;
+		final double priceOfOne = 1 - totalOfOne;
+		return (8+8)*(priceOfOne);
 	}
 
 	private double priceFor (final int... book) {
