@@ -15,13 +15,13 @@ public class PotterLibrary {
 				multiplicator = 0.05;
 				break;
 			case 3:
-				multiplicator = (0.1);
+				multiplicator = 0.1;
 				break;
 			case 4:
-				multiplicator = (0.2);
+				multiplicator = 0.2;
 				break;
 			case 5:
-				multiplicator = (0.25);
+				multiplicator = 0.25;
 				break;
 		}
 		return basePrice * (1- multiplicator);
