@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by alvaro on 19/03/15.
  */
@@ -20,8 +23,10 @@ public class PotterLibrary {
 	}
 
 	private double getDiscount (final int[] book) {
+
 		double discount = 0;
-		switch (book.length) {
+		final int uniqueBooks = unique(book);
+		switch (uniqueBooks) {
 			case 2:
 				discount = 0.05;
 				break;
@@ -36,5 +41,13 @@ public class PotterLibrary {
 				break;
 		}
 		return discount;
+	}
+
+	private int unique (final int[] book) {
+		Set<Integer> uniqueBooks = new HashSet<>();
+		for (int current : book) {
+			uniqueBooks.add(current);
+		}
+		return uniqueBooks.size();
 	}
 }
