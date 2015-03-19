@@ -18,7 +18,6 @@ public class PotterLibrary {
 			case 3:
 				multiplicator = (1 - 0.1);
 				break;
-
 			default:
 				multiplicator = 1;
 		}
