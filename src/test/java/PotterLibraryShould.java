@@ -10,7 +10,7 @@ public class PotterLibraryShould {
 
 	@Test
 	public void sell_0_books_at_zero_price () {
-		assertThat(priceFor(0), is(0.));
+		assertThat(priceFor(), is(0.));
 	}
 
 	@Test

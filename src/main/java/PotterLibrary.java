@@ -7,9 +7,11 @@ public class PotterLibrary {
 
 	public double price (final int... book) {
 		switch (book.length) {
+			case 0:
 			default:
+				return 0;
 			case 1:
-				return BOOK_PRICE * book[0];
+				return BOOK_PRICE * book.length;
 			case 2:
 				return BOOK_PRICE * book.length * (1 - 0.05);
 			case 3:
