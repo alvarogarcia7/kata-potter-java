@@ -6,11 +6,17 @@ public class PotterLibrary {
 	public static final int BOOK_PRICE = 8;
 
 	public double price (final int... book) {
-
-		final double basePrice = BOOK_PRICE * book.length;
-
+		final double basePrice = getBasePrice(book);
 		double discount = getDiscount(book);
+		return applyDiscount(basePrice, discount);
+	}
+
+	private double applyDiscount (final double basePrice, final double discount) {
 		return basePrice * (1- discount);
+	}
+
+	private double getBasePrice (final int[] book) {
+		return BOOK_PRICE * book.length;
 	}
 
 	private double getDiscount (final int[] book) {
