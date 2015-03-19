@@ -7,9 +7,9 @@ public class PotterLibrary {
 
 	public double price (final int... book) {
 		if(book.length == 2){
-			return BOOK_PRICE *2*(1-0.05);
+			return BOOK_PRICE *book.length*(1-0.05);
 		} else if (book.length == 3){
-			return BOOK_PRICE*3*(1-0.1);
+			return BOOK_PRICE*book.length*(1-0.1);
 		}
 		return BOOK_PRICE * book[0];
 	}
