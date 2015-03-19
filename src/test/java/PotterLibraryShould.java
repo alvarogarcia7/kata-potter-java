@@ -18,6 +18,11 @@ public class PotterLibraryShould {
 		assertThat(priceFor(1), is(8));
 	}
 
+	@Test
+	public void sell_two_different_books_at_5percent_discount () {
+		assertThat(priceFor(1,2), is((8+8)*0.95));
+	}
+
 	private int priceFor (final int book) {
 		return new PotterLibrary().price(book);
 	}
