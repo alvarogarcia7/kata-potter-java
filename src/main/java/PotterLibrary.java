@@ -7,10 +7,9 @@ public class PotterLibrary {
 
 	public double price (final int... book) {
 
-
 		final double basePrice = BOOK_PRICE * book.length;
 
-		double multiplicator;
+		double multiplicator = 1;
 		switch (book.length) {
 			case 2:
 				multiplicator = (1 - 0.05);
@@ -18,8 +17,6 @@ public class PotterLibrary {
 			case 3:
 				multiplicator = (1 - 0.1);
 				break;
-			default:
-				multiplicator = 1;
 		}
 		return basePrice * multiplicator;
 	}
