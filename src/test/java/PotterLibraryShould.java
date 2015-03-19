@@ -13,4 +13,13 @@ public class PotterLibraryShould {
 		assertThat(PotterLibrary.price(), is(0));
 	}
 
+	@Test
+	public void sell_a_single_at_8_eur () {
+		assertThat(priceFor(1), is(8));
+	}
+
+	private String priceFor (final int book) {
+		return new PotterLibrary().price(book);
+	}
+
 }
