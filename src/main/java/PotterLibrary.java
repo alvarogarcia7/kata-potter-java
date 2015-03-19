@@ -9,6 +9,11 @@ public class PotterLibrary {
 
 		final double basePrice = BOOK_PRICE * book.length;
 
+		double discount = getDiscount(book);
+		return basePrice * (1- discount);
+	}
+
+	private double getDiscount (final int[] book) {
 		double multiplicator = 0;
 		switch (book.length) {
 			case 2:
@@ -24,6 +29,6 @@ public class PotterLibrary {
 				multiplicator = 0.25;
 				break;
 		}
-		return basePrice * (1- multiplicator);
+		return multiplicator;
 	}
 }
