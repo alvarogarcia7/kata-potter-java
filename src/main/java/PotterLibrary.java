@@ -6,16 +6,22 @@ public class PotterLibrary {
 	public static final int BOOK_PRICE = 8;
 
 	public double price (final int... book) {
+
+
+		final double basePrice = BOOK_PRICE * book.length;
+
+		double multiplicator;
 		switch (book.length) {
-			case 1:
-				return BOOK_PRICE * book.length;
 			case 2:
-				return BOOK_PRICE * book.length * (1 - 0.05);
+				multiplicator = (1 - 0.05);
+				break;
 			case 3:
-				return BOOK_PRICE * book.length * (1 - 0.1);
-			case 0:
+				multiplicator = (1 - 0.1);
+				break;
+
 			default:
-				return BOOK_PRICE * book.length;
+				multiplicator = 1;
 		}
+		return basePrice * multiplicator;
 	}
 }
