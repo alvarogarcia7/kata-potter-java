@@ -14,21 +14,21 @@ public class PotterLibrary {
 	}
 
 	private double getDiscount (final int[] book) {
-		double multiplicator = 0;
+		double discount = 0;
 		switch (book.length) {
 			case 2:
-				multiplicator = 0.05;
+				discount = 0.05;
 				break;
 			case 3:
-				multiplicator = 0.1;
+				discount = 0.1;
 				break;
 			case 4:
-				multiplicator = 0.2;
+				discount = 0.2;
 				break;
 			case 5:
-				multiplicator = 0.25;
+				discount = 0.25;
 				break;
 		}
-		return multiplicator;
+		return discount;
 	}
 }
