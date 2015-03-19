@@ -53,6 +53,11 @@ public class PotterLibraryShould {
 		assertThat(priceFor(2,2,2,2), is(percent_discount(0,4)));
 	}
 
+	@Test
+	public void sell_two_sets_of_two_books_with_5percent_discount() {
+		assertThat(priceFor(2,2,1,1), is(percent_discount(5,4)));
+	}
+
 	private double percent_discount (final int percent, final int books) {
 		final double totalOfOne = percent / 100d;
 		final double priceOfOne = 1 - totalOfOne;
