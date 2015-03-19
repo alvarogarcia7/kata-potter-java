@@ -10,7 +10,7 @@ public class PotterLibraryShould {
 
 	@Test
 	public void sell_0_books_at_zero_price () {
-		assertThat(PotterLibrary.price(), is(0));
+		assertThat(PotterLibrary.price(0), is(0));
 	}
 
 	@Test
@@ -18,7 +18,7 @@ public class PotterLibraryShould {
 		assertThat(priceFor(1), is(8));
 	}
 
-	private String priceFor (final int book) {
+	private int priceFor (final int book) {
 		return new PotterLibrary().price(book);
 	}
 
