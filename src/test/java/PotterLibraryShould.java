@@ -15,6 +15,6 @@ public class PotterLibraryShould {
 	}
 
 	private int price () {
-		return 1;
+		return 0;
 	}
 }
