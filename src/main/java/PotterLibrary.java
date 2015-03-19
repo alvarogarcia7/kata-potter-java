@@ -17,6 +17,9 @@ public class PotterLibrary {
 			case 3:
 				multiplicator = (1 - 0.1);
 				break;
+			case 4:
+				multiplicator = (1-0.2);
+				break;
 		}
 		return basePrice * multiplicator;
 	}
