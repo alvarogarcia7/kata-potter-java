@@ -9,21 +9,21 @@ public class PotterLibrary {
 
 		final double basePrice = BOOK_PRICE * book.length;
 
-		double multiplicator = 1;
+		double multiplicator = 0;
 		switch (book.length) {
 			case 2:
-				multiplicator = (1 - 0.05);
+				multiplicator = 0.05;
 				break;
 			case 3:
-				multiplicator = (1 - 0.1);
+				multiplicator = (0.1);
 				break;
 			case 4:
-				multiplicator = (1-0.2);
+				multiplicator = (0.2);
 				break;
 			case 5:
-				multiplicator = (1-0.25);
+				multiplicator = (0.25);
 				break;
 		}
-		return basePrice * multiplicator;
+		return basePrice * (1- multiplicator);
 	}
 }
