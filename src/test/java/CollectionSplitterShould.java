@@ -13,6 +13,11 @@ public class CollectionSplitterShould {
 		assertThat(split(1,2,1).size(), is(2));
 	}
 
+	@Test
+	public void not_matter_the_order() {
+		assertThat(split(2,2,1,1).size(), is(2));
+	}
+
 	private List<int[]> split (final int... books) {
 		return new CollectionSplitter(books).split();
 	}
