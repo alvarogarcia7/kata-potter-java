@@ -14,7 +14,8 @@ public class PotterLibrary {
 		if(book.length == 3 && book[1]==2 && book[2] == 1){
 			return 15.2+8;
 		}
-		return sumAll(splitInCollections(book));
+		final List<int[]> collections = new CollectionSplitter(book).split();
+		return sumAll(collections);
 	}
 
 	private double sumAll (final List<int[]> collections) {
@@ -27,12 +28,6 @@ public class PotterLibrary {
 
 	private double applyDiscount (final double basePrice, final double discount) {
 		return basePrice * (1 - discount);
-	}
-
-	private List<int[]> splitInCollections ( final int[] allBooks) {
-		final List<int[]> collections = new ArrayList<>();
-		collections.add(allBooks);
-		return collections;
 	}
 
 	private double getBasePrice (final int[] book) {
@@ -67,5 +62,23 @@ public class PotterLibrary {
 			uniqueBooks.add(current);
 		}
 		return uniqueBooks.size();
+	}
+
+	private class CollectionSplitter {
+		private final int[] book;
+
+		public CollectionSplitter (final int... book) {
+			this.book = book;
+		}
+
+		public List<int[]> split () {
+			return splitInCollections(book);
+		}
+
+		private List<int[]> splitInCollections ( final int[] allBooks) {
+			final List<int[]> collections = new ArrayList<>();
+			collections.add(allBooks);
+			return collections;
+		}
 	}
 }
