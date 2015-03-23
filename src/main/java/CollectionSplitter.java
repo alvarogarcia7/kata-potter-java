@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -25,28 +26,35 @@ class CollectionSplitter {
 	private List<Set<Integer>> getCollections (final int[] allBooks) {
 		final List<Set<Integer>> collections = new ArrayList<>();
 
-		Set<Integer> currentCollection = new HashSet<>();
-		collections.add(currentCollection);
-
-
 		for (int current : allBooks) {
-			if (currentCollection.contains(current)) {
-				boolean found = false;
-				for (Set<Integer> collection : collections) {
-					if(!collection.contains(current)){
-						currentCollection = collection;
-						found = true;
-					}
+			List<Set<Integer>> candidateCollections = new ArrayList<>();
+			for (Set<Integer> collection : collections) {
+				if (!collection.contains(current)) {
+					candidateCollections.add(collection);
 				}
-				if(!found) {
-					currentCollection = new HashSet<>();
-					collections.add(currentCollection);
-				}
-
 			}
-			currentCollection.add(current);
+
+			final Set<Integer> destination;
+			if (candidateCollections.isEmpty()) {
+				destination = new HashSet<>();
+				collections.add(destination);
+			} else {
+				sortBySize(candidateCollections);
+				destination = candidateCollections.get(0);
+			}
+			destination.add(current);
 		}
 		return collections;
+	}
+
+
+	public void sortBySize (final List<Set<Integer>> candidateCollections) {
+		candidateCollections.sort(new Comparator<Set<Integer>>() {
+			@Override
+			public int compare (final Set<Integer> o1, final Set<Integer> o2) {
+				return o1.size() - o2.size();
+			}
+		});
 	}
 
 	private List<int[]> toIntArray (final List<Set<Integer>> collections) {
@@ -66,4 +74,6 @@ class CollectionSplitter {
 
 		return result;
 	}
+
+
 }
