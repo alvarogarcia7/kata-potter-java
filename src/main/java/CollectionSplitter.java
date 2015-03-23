@@ -49,12 +49,8 @@ class CollectionSplitter {
 
 
 	public void sortBySize (final List<Set<Integer>> candidateCollections) {
-		candidateCollections.sort(new Comparator<Set<Integer>>() {
-			@Override
-			public int compare (final Set<Integer> o1, final Set<Integer> o2) {
-				return o1.size() - o2.size();
-			}
-		});
+		final Comparator<Set<Integer>> SORT_BY_SIZE = (o1, o2) -> o1.size() - o2.size();
+		candidateCollections.sort(SORT_BY_SIZE);
 	}
 
 	private List<int[]> toIntArray (final List<Set<Integer>> collections) {
