@@ -18,6 +18,11 @@ class CollectionSplitter {
 	}
 
 	private List<int[]> splitInCollections ( final int[] allBooks) {
+		final List<Set<Integer>> collections = getCollections(allBooks);
+		return toIntArray(collections);
+	}
+
+	private List<Set<Integer>> getCollections (final int[] allBooks) {
 		final List<Set<Integer>> collections = new ArrayList<>();
 
 		Set<Integer> currentCollection = new HashSet<>();
@@ -41,8 +46,7 @@ class CollectionSplitter {
 			}
 			currentCollection.add(current);
 		}
-
-		return toIntArray(collections);
+		return collections;
 	}
 
 	private List<int[]> toIntArray (final List<Set<Integer>> collections) {
