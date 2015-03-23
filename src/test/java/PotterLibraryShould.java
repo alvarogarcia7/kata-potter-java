@@ -73,6 +73,16 @@ public class PotterLibraryShould {
 		assertThat(priceFor(1, 1, 2), is(8 + (8 * 2 * 0.95)));
 	}
 
+	@Test
+	public void acceptance_test_4() {
+		assertThat(priceFor(1, 1, 2, 3, 3, 4), is((8 * 4 * 0.8) + (8 * 2 * 0.95)));
+	}
+
+//	@Test
+//	public void acceptance_test_5() {
+//		assertThat(priceFor(1, 2, 2, 3, 4, 5), is(8 + (8 * 5 * 0.75)));
+//	}
+
 	private double percent_discount (final int percent, final int books) {
 		final double totalOfOne = percent / 100d;
 		final double priceOfOne = 1 - totalOfOne;
