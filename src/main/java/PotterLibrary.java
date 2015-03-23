@@ -10,9 +10,6 @@ public class PotterLibrary {
 	public static final int BOOK_PRICE = 8;
 
 	public double price (final int... book) {
-		if(book.length == 3 && book[1]==2 && book[2] == 1){
-			return 15.2+8;
-		}
 		final List<int[]> collections = new CollectionSplitter(book).split();
 		return sumAll(collections);
 	}
